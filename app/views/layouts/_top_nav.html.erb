@@ -39,9 +39,26 @@
               <%= link_to category.name, category, class: "nav-link" %>
             </li>
             <% end %>
+
+            <li class="nav-item">
+            <%= link_to 'About Us', [:about, :index], :class=> "nav-link" %>
+          </li>
+
+
           <%# </ul>
         </li> %>
       </ul>
+
+      <ul class="navbar-nav navbar-dark">
+        <% if current_user %>
+           🌳 Signed in as <%= current_user.email %> 🌳 <%= link_to "Logout", "/logout", :class => "nav-link" %>  🌳 
+        <% else %>
+            <%= link_to '🌳 Login 🌳', '/login', :class => "nav-link" %><%= link_to 'Signup 🌳', '/signup', :class => "nav-link" %> 
+        <% end %>
+        <%= yield :end_of_body %>
+
+
+
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a
@@ -57,12 +74,14 @@
           <ul class="dropdown-menu dropdown-menu-dark">
             <li><%= link_to 'Dashboard', [:admin, :root], class: "nav-link" %></li>
             <li><%= link_to 'Products', [:admin, :products], class: "nav-link" %></li>
+            <li><%= link_to 'Categories', [:admin, :categories], class: "nav-link" %></li>
+            <li><%= link_to 'Sales', [:admin, :sales], class: "nav-link" %></li>
           </ul>
         </li>
         <li class="nav-item end-0">
-          <%= link_to cart_path, class: "nav-link " do %> <%= fa_icon "shopping-cart" %>
-          My Cart (<%= cart.size %>) <% end %>
-        </li>
+        <%= link_to cart_path, class: "nav-link " do %> <%= fa_icon "shopping-cart" %>
+        My Cart (<%= cart.size %>) <% end %>
+      </li>
       </ul>
     </div>
   </div>
@@ -79,7 +98,7 @@ const gnr = () => {
     uptitle.style.textAlign = "center";
 
     subtitle.innerHTML =
-      "<p>Watch it bring you to your</p><p> shu-n-n-n-n-n-n-n-n knees, knees!</p>";
+      "<p>We are the bees knees!</p>";
   };
   const title = document.querySelector("header.hero");
   title.addEventListener("dblclick", gnr);
