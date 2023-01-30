@@ -1,0 +1,47 @@
+
+<!-- app/views/users/new.html.erb -->
+
+<h1 class=login_title>Signup!</h1>
+
+
+
+
+<%= form_for :user, url: '/users', :class=>"shadow-lg p-3 mb-5 bg-white rounded dash-link" do |f| %>
+  
+<div class="form-row">
+  <div class="form-group col-md-10">
+    <%= f.label :first_name %>:
+    <%= f.text_field :first_name %>
+     <%= f.label :last_name %>:
+    <%= f.text_field :last_name %>
+  </div>
+  <br />
+</div>
+
+<div class="form-row">
+  <div class="form-group col-md-8">
+    <%= f.label :email %>:
+    <%= f.text_field :email %>
+
+  </div>
+    <br />
+</div>
+
+<div class="form-row">
+  <div class="form-group col-md-30">
+  <%= f.label :password %>:
+  <%= f.password_field :password %>
+  <%= f.label :confirm_password %>:
+  <%= f.password_field :password_confirmation %>
+  </div>
+  <br />
+</div>
+
+ 
+<div class="form-row">
+  <%= f.submit "Submit" %>
+</div>
+
+
+
+<% end %>
