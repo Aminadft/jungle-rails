@@ -1,6 +1,10 @@
 <tr>
   <td>
-    <%= image_tag product.image.tiny.url %>
+  <% if product.image.thumb.url == nil %>
+  <%= image_tag "/images/hero_header.jpg"%>
+<% else %>
+  <%= image_tag product.image.thumb.url , alt: product.name %>
+<%end%>
   </td>
   <td>
     <h4><%= product.name %></h4>

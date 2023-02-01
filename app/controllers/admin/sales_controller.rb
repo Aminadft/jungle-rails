@@ -1,5 +1,5 @@
 class Admin::SalesController < ApplicationController
-  http_basic_authenticate_with name: ENV['HTTP_AUTH_UN'], password: ENV['HTTP_AUTH_PW']
+  http_basic_authenticate_with name: ENV['ADMIN_USERNAME'], password: ENV['ADMIN_PASSWORD']
   def index
     @sales = Sale.all
     # render :index
